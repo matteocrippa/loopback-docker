@@ -14,7 +14,7 @@ RUN apt-get autoremove -y
 RUN apt-get autoclean -y
 RUN apt-get install -y git
 RUN apt-get install -y build-essential
-RUN apt-get install -y nodejs
+RUN apt-get install -y nodejs-legacy
 RUN apt-get install -y npm
 RUN apt-get install -y wget
 RUN apt-get install -y vim
@@ -28,6 +28,6 @@ RUN npm install -g strongloop
 RUN npm install -g nodemon
 
 COPY loopback.conf  /etc/init/
-COPY monit-loopback.conf  /etc/monit/ 
+COPY monit-loopback.conf  /etc/monit/
 
 CMD ${SCRIPT_PATH}
