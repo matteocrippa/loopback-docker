@@ -22,6 +22,5 @@ RUN npm install -g nodemon
 COPY loopback.conf  /etc/init/
 COPY monit-loopback.conf  /etc/monit/conf-enabled
 
-RUN update-rc.d monit enable
-
+CMD ["/usr/bin/monit", "-I"]
 CMD ${SCRIPT_PATH}
