@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM alpine:3.4
 MAINTAINER Matteo Crippa @ghego20
 
 ENV HOME /root
@@ -8,19 +8,11 @@ ENV SCRIPT_PATH /root/loopback/bin/www
 # Set WORKDIR
 WORKDIR ${WORK_DIR}
 
-RUN apt-get update
-RUN apt-get upgrade -y
-RUN apt-get autoremove -y
-RUN apt-get autoclean -y
-RUN apt-get install -y git
-RUN apt-get install -y build-essential
-RUN apt-get install -y nodejs-legacy
-RUN apt-get install -y npm
-RUN apt-get install -y wget
-RUN apt-get install -y vim
-RUN apt-get install -y monit
-RUN apt-get clean -y
-RUN apt-get update
+RUN apk add --no-cache git
+RUN apk add --no-cache nodejs
+RUN apk add --no-cache wget
+RUN apk add --no-cache vim
+RUN apk add --no-cache monit
 
 VOLUME ${WORK_DIR}
 
