@@ -20,6 +20,8 @@ RUN npm install -g strongloop
 RUN npm install -g nodemon
 
 COPY loopback.conf  /etc/init/
-COPY monit-loopback.conf  /etc/monit/
+COPY monit-loopback.conf  /etc/monit/conf-enabled
+
+RUN update-rc.d monit enable
 
 CMD ${SCRIPT_PATH}
